@@ -1,9 +1,6 @@
-$(document).ready(function() {
+$(document).ready(function() { // without this, then... JQuery will run at the same time. YOu want document to load first. When document is loaded, then run JQuery.
 
-// var itemName =['Salmon', 'Tuna', 'Carp', 'Pork', 'Beef', 'Chicken', 'Cereal', 'Milk', 'Sugar'];
-// var itemPrice=  [60, 50, 40, 50, 40, 25, 45, 20, 10];
-
-$('.item-name');
+// $('.item-name');
 
 $('.buttonRow').click(function(){
 	calculateRow();
@@ -13,18 +10,6 @@ $('.buttonRowT').click(function(){
 	rowQuantXPrice();
 });
 
-// price is fine ; quantity is logging the stuff in calaculate button
-<!-- //jquery how do i read value frominput box
-//$('#fool').text()
-//to convert string to number
-//"1" --> 1
-//number("1") --> 1
-
-// function getQuant() {
-// 	var quantity2 = $(".quantity2").val();
-// 	alert("Quantity is "+quantity2);
-
-// }
 $('.buttonQuant').click(function(){
   getQuant();
 });
@@ -33,13 +18,16 @@ $('#total-price').click(function(){
   replaceTotal();
 });
 
+$('#reset-button').click(function(){
+  clearForm();
+});
+
+
 function getQuant() {
-	
   var rowQuantity = $(".quantity"); // the variable "rowQuantity" references the class "quantity" (which is referenced in the html, where we will manually input the amount)
   var prices      = $(".item-price"); // the variable "prices" references the class "item-price" in the html (where the prices are listed) 
   var sum=0; //var sum is declared here (and not inside the for loop) so that when the for loop is working it won't reset sum to zero everytime.
   for (var i = 0; i < rowQuantity.length; i++) {   //initiation at zero, i less than the length of the array rowQuantity (the class "quantity" is referenced 9 times in the html (9 separate prices), so length is 9 minus 1 =8.) 
-    
     var rowTotal;
     var price    = parseInt(prices[i].innerHTML.trim().slice(1)); //pariseInt turns string into integer. price[i], the first time, shows prices[0], equivalent to the first time the class "item-price" is referenced (in this instance, 60 dollars). innerHTML gets the content within the html codes ($60). Trim takes out the white spaces on the left and right; and slice(1) takes out the $ sign so we are left with "60" for calculations  
     var quantity = rowQuantity[i].value; 
@@ -52,33 +40,17 @@ function getQuant() {
   alert("The total sum for the cart is $"+sum+".");
 }
 
+function clearForm() {
+  var rowQuantity = $(".quantity");
+  for (var i =0; i < rowQuantity.length; i++) {
+    rowQuantity[i].value="";
+  }
+}
+
 function replaceTotal() {
   $('#total-price').replaceWith("Hello!");
   //codes
 }
-
-
-<!-- //jquery how do i read value frominput box
-//$('#fool').text()
-
-
-// function calculateRow() {
-//   //  var quantity = $(".quantity").val();
-//   // var itemPrice = $('.row > .item-price')  
-//   for (var i = 0; i <= 3; i+=1) {
-//   var quantity = $(".row > .quantity");
-//   var rowTotal = quantity[i] * itemPrice[i]; 
-
-//   var total = 
-//   console.log(quantity);
-//   console.log(rowTotal);
-// alert("quantity is "+quantity[i]);
-// alert("The amount for this row of "+itemName[i]+" is HKD"+rowTotal);
-
-//     var rowTotal = quantity * $(".item-price"); 
-// }
-// }
-
 
 // $('.row > .item-name')[2]; --> carp
 // $('.row > .item-qty')[2]; --> QTY
