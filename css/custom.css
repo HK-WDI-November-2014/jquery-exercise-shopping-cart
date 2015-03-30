@@ -1,0 +1,58 @@
+@font-face { font-family: cs; src: url('../cs_regular.ttf');}
+
+
+body {
+	font-family: cs;
+	color: orange;
+	margin: auto;
+}
+.item-name {
+	font-size: 18px;
+}
+
+.bg {
+	background: url('http://i.ytimg.com/vi/HGbbqGRxznQ/maxresdefault.jpg');
+	background-size: auto;
+}
+
+
+h1, h3{
+	color: black;
+}
+
+h3 {
+	margin-bottom: 40px;
+	font-size: 40px;
+}
+
+.total-price-label {
+	color: black;
+	border-bottom: 2px solid black;
+}
+
+#ak img, #m4 img, #awp img, #g3sg1 img, #scar img, #galil img, #famas img, #deagle img, #tec9 img {
+	display: none;
+}
+
+#ak:hover img, #m4:hover img, #awp:hover img, #g3sg1:hover img, #scar:hover img, #galil:hover img, #famas:hover img, #deagle:hover img, #tec9:hover img {
+	display: block;
+	height: 300px;
+	width: auto;
+}
+
+#total-price {
+	font-size: 30px;
+	text-align: center;
+}
+
+.item-subtotal, .item-price {
+	font-size: 25px;
+}
+ 
+ button {
+	margin-top: 40px;
+}
+
+.row {
+	text-align: center;
+}
